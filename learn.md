@@ -17,6 +17,7 @@
   ```
 
 # 參考文章
+- [按鍵列表 | v2 | 簡體中文](https://wyagd001.github.io/v2/docs/KeyList.htm)
 - [ClipWait | v2 | 簡體中文](https://wyagd001.github.io/v2/docs/lib/ClipWait.htm)
 - [變數 | v2 | 簡體中文](https://wyagd001.github.io/v2/docs/Variables.htm)
 - [Format | v2 | 簡體中文](https://wyagd001.github.io/v2/docs/lib/Format.htm)

@@ -1,8 +1,42 @@
-/**
- * 還是 qmk 比較厲害，這部分如果有 qmk 還是用 qmk，但某些事情還是 ahk 會更為合適
- */
+/** Requires AutoHotkey v2.0 */
 
-; 先判斷 ctrl, shift 的搭配即可，win 應該用不太到
+
+/** 順時針交換 CapsLock、 LCtrl、LWin
+ */
+; 將 CapsLock 映射為 LCtrl
+CapsLock::LCtrl
+; 將 LCtrl 映射為 LWin
+LCtrl::LWin
+; 將 LWin 映射為 CapsLock
+LWin::CapsLock
+
+
+/** LAlt + 左 => Home 系列
+ */
+; LAlt + 左 => Home
+<!Left:: {
+  SendInput "{Home}"
+}
+; LAlt + Shift + 左 => Shift + Home
+<!+Left:: {
+  SendInput "+{Home}"
+}
+
+/** LAlt + 右 => End 系列
+ */
+; LAlt + 右 => End
+<!Right:: {
+  SendInput "{End}"
+}
+<!+Right:: {
+  ; LAlt + Shift + 右 => Shift + End
+  SendInput "+{End}"
+}
+
+
+/** LAlt + ijkl => 方向鍵 系列
+ * 先判斷 ctrl, shift 的搭配即可，win 應該用不太到
+ */
 
 /** ------ 上 ------ */
 ; LAlt + i => 上
@@ -22,7 +56,6 @@
   SendInput "+^{Up}"
 }
 
-
 /** ------ 左 ------ */
 ; LAlt + j => 左
 <!j:: {
@@ -40,7 +73,6 @@
 <!+^j:: {
   SendInput "+^{Left}"
 }
-
 
 /** ------ 下 ------ */
 ; LAlt + k => 下
@@ -60,7 +92,6 @@
   SendInput "+^{Down}"
 }
 
-
 /** ------ 右 ------ */
 ; LAlt + l => 右
 <!l:: {
@@ -77,4 +108,31 @@
 ; LAlt + Shift + Ctrl + l => Shift + Ctrl + 右
 <!+^l:: {
   SendInput "+^{Right}"
+}
+
+
+/** 音量控制系列
+ */
+; LAlt + NumPad+ => 提高音量
+<!NumpadAdd:: {
+  SendInput "{Volume_Up}"
+}
+; LAlt + NumPad- => 降低音量
+<!NumpadSub:: {
+  SendInput "{Volume_Down}"
+}
+; LAlt + NumPadEnter => 靜音
+<!NumpadEnter:: {
+  SendInput "{Volume_Mute}"
+}
+
+
+/** 避免誤觸 NumLock
+ */
+; NumLock => 空鍵位
+NumLock:: {
+}
+; LAlt + NumLock => toggle NumLock state
+<!NumLock:: {
+  SetNumLockState !GetKeyState("NumLock", "T")
 }

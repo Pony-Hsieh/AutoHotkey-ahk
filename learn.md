@@ -1,4 +1,14 @@
-## 變數
+# 檔案宣告
+- ```ahk
+  ; 需要 AHK 2.0
+  #Requires AutoHotkey v2.0
+  ```
+- ```ahk
+  ; 同腳本已在運行時，以新版本覆蓋舊版本，並重新運行
+  #SingleInstance force
+  ```
+
+# 變數
 - 
   ```ahk
   MyNumber := 123

@@ -1,3 +1,6 @@
+#Requires AutoHotkey v2.0
+#SingleInstance force
+
 ; ctrl + alt + 2 => 透過 chrome 有痕模式搜尋選取起來的內容
 ^!2:: {
   searchOnChrome("")
